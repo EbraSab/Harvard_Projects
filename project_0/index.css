@@ -1,0 +1,229 @@
+
+/* --------------------------------------------------------- */
+/* -----------------------Main Search-------------------------- */
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+
+
+#line {
+    width: 100%;
+    height: 40px;
+    background-color: #e9eef4;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 1px 6px 0 rgb(220, 212, 255);    
+}
+
+#g {
+    background-color: #ffffff;
+    width: 30px;
+    height: auto;
+    border-radius: 100%;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+}
+
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 20px;
+}
+
+.links a {
+    color: rgba(0, 0, 0, .87);
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+
+
+#logo {
+    width: 272px;
+    height: auto;
+    margin: -30px;
+}
+
+
+
+#Sicon {
+    width: 20px;
+    height: auto;
+    position: relative;
+    top: 5px;
+    left: 40px;
+    z-index: 1;
+}
+
+
+
+
+#search {
+    width: 500px;
+    padding: 12px 10px 12px 45px;
+    margin: 10px 0;
+    border-radius: 28px;
+    border: none;
+    box-shadow: 0 1px 6px 0 #20212447;
+    position: relative;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 28px;
+    box-shadow: 0 1px 6px 0 darkblue;
+    cursor: pointer;
+}
+
+#Sbutton:hover{
+    background-color: #0066cc;
+}
+#Lbutton:hover{
+    background-color: #0066cc;
+}
+
+
+/* --------------------------------------------------------- */
+/* -----------------------Image Search---------------------- */
+
+
+#Iicon {
+    width: 25px;
+    height: auto;
+    position: relative;
+    top: 7px;
+    left: 45px;
+    z-index: 1;
+}
+
+
+#Ilogo {
+    width: 272px;
+    height: auto;
+}
+
+
+/* --------------------------------------------------------- */
+/* -----------------------Advanced Search---------------------- */
+
+#aLogo {
+    position: absolute;
+    width: 75px;
+    height: auto;
+    top: 45px;
+    left: 30px;
+}
+
+
+#word {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    border-bottom: 1px solid lightgrey;
+}
+
+#advanced {
+    position: absolute;
+    left: 30px;
+    font-family: Arial, sans-serif;
+    color: #d93025;
+    font-size: 25px;
+}
+
+
+#advancedSearch{
+    position: absolute;
+    top: 180px;
+    left: 30px;
+}
+
+
+  .advanced-search-container label {
+    display: inline-block;
+    width: 16%;
+    font-size: 20px;
+  }
+
+  .advanced-search-container .whitespace {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .advanced-search-container .form-group {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .advanced-search-container .form-group label {
+    width: 16%;
+    font-size: 14px;
+  }
+
+  .advanced-search-container .form-group input[type=text] {
+    width: 50%;
+    padding: 5px 5px 5px 5px;
+  }
+
+  .advanced-search-container .form-group .clarification {
+    font-size: 11px;
+    width: 30%;
+    margin-left: 1%;
+  }
+
+  .advanced-search-container .form-group .clarification .monospace {
+    font-family: monospace;
+  }
+
+
+  #Abtn {
+    padding: 8px 8px;
+    background-color: #4d90fe;
+    color: white;
+    border: 1px solid #3079ed;
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+
+  #Abtn:hover {
+    background-color: #357ae8;
+    border: 1px solid #2f5bb7;
+  }
