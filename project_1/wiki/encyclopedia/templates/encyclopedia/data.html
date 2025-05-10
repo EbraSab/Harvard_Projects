@@ -1,0 +1,40 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block body %}
+    {% if content == 1 %}
+        <h1>
+            No Such Page Found: "{{ error }}"
+        </h1>
+
+        <p>
+            <a href="{% url "create" 0 %}">Create</a> that page right now!
+        </p>
+
+    {% elif content == 2 %}
+        <h1>
+            This Page Already Exists: "{{ error }}"
+        </h1>
+        <p>
+            Visit <a href="{% url "data" error %}">{{ error }}</a> to view the page.
+        </p>
+
+    {% else %}
+        
+        {{ content | safe }}
+
+        <form action="{% url "edit" title %}" method="GET">
+            <input class="btn btn-primary" type="submit" value="Edit">
+        </form>
+        <br>
+        <form action="{% url "delete" title %}" method="GET">
+            <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+
+    {% endif %}
+{% endblock %}

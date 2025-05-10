@@ -1,0 +1,39 @@
+{% extends "encyclopedia/layout.html" %} 
+
+  {% block title %} 
+    {% if edit %} Edit "{{title}}"
+    {% else %}Create a New Entry{% endif %}
+  {%endblock %}
+  
+  {% block body %}
+
+    {% if edit %}
+
+    <form action="{% url 'create' edit %}" method="POST">
+      {% csrf_token %}
+
+      <h3>Title</h3>
+        <input value="{{title}}" name="title" type="text" readonly/>
+
+      <h3>Content</h3>
+        <textarea name="content" placeholder="Content" required>{{ content }}</textarea>
+      <br>
+      <input class="btn btn-primary" type="submit" value="Apply Changes" />
+    </form>
+
+    {% else %}
+
+      <form action="{% url 'create' 0 %}" method="POST">
+        {% csrf_token %}
+
+        <h3>Title</h3>
+          <input name="title" type="text" placeholder="Name of the new entry" required autofocus/>
+
+        <h3>Content</h3>
+          <textarea name="content" placeholder="Content" required></textarea>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Create"/>
+      </form>
+
+    {% endif %}
+  {% endblock %}
