@@ -1,0 +1,33 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+  <h2>Active Listings</h2>
+  <div class="row">
+    {% for listing in listings %}
+      {% if listing.active %}
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card h-100">
+            <a href="{% url 'listing' listing.id %}">
+              <img src="{{ listing.imgURL }}" class="card-img-top" alt="Picture">
+            </a>
+            <div class="card-body">
+              <a href="{% url 'listing' listing.id %}" class="text-decoration-none text-dark">
+                <h4 class="card-title">{{ listing.title }}</h4>
+              </a>
+              <p class="card-text">{{ listing.description|truncatewords:20 }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+              <h4 class="text-danger">${{ listing.starting_bid.bid }}</h4>
+              {% if user in listing.watchlist.all %}
+                <a href="{% url 'listing' listing.id %}" class="add-to-watchlist" name="action" value="remove_watchlist"><i class="fa-solid fa-heart" style="color:rgb(255, 255, 255);"></i></a>
+                {% else %}
+                <a href="{% url 'listing' listing.id %}" class="add-to-watchlist" name="action" value="add_watchlist"><i class="fa-regular fa-heart" style="color: rgb(255, 255, 255);"></i></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}

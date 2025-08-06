@@ -1,0 +1,296 @@
+/* Reset & Base */
+body {
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 10px;
+}
+
+/* Container */
+.container {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Card Wrapper */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: scale-down;
+  background-color: #f8f9fa;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Product Image Container */
+.card-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; 
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.product-image {
+    flex: 0 0 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+
+.product-image img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Product Details */
+.product-details {
+    flex: 1 1 50%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Typography */
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff9f1a;
+    margin-bottom: 15px;
+}
+
+.seller,
+.category {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/* Buttons and Inputs */
+
+.top-right-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 1000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.top-right-btn:hover {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(148, 0, 0);
+}
+
+.index-watchlist {
+    background-color: #ff4c1a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.index-watchlist:hover {
+    background-color: #d13f16;
+}
+
+.bid-input {
+    width: 50%;
+    margin-bottom: 15px;
+    padding: 0.5em;
+    font-size: 16px;
+}
+
+.add-to-cart {
+    background-color: #ff9f1a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 80px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #c57300;
+}
+
+.btn-watchlist {
+    padding: 15px 0;
+}
+
+.add-to-watchlist {
+    background-color: #ff4c1a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 44px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.add-to-watchlist:hover {
+    background-color: #d13f16;
+    text-decoration: none;
+    color: white;
+}
+
+/* Links */
+._card-link {
+    color: inherit;
+    text-decoration: none !important;
+    display: block;
+}
+
+._card-link:hover,
+._card-link:focus {
+    color: inherit;
+}
+
+/* Comment Section Container */
+.comments {
+  margin-top: 32px; /* converted from 2rem */
+  padding: 16px; /* converted from 1rem */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Comments Heading */
+.comments h3 {
+  font-size: 24px; /* converted from 1.5rem */
+  margin-bottom: 16px; /* converted from 1rem */
+  color: #333;
+  border-bottom: 2px solid #ffa500; /* Orange underline */
+  padding-bottom: 5px; /* converted from 0.3rem */
+}
+
+/* Comment List */
+.comment-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 32px; /* converted from 2rem */
+}
+
+/* Individual Comment */
+.comment {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px; /* converted from 1rem */
+  margin-bottom: 16px; /* converted from 1rem */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.comment:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Comment Author and Date */
+.comment p:first-child {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px; /* converted from 0.5rem */
+  font-size: 14.4px; /* converted from 0.9rem */
+}
+
+/* Comment Text */
+.comment p:last-child {
+  font-size: 16px; /* converted from 1rem */
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Comment Form */
+.comment-form {
+  background-color: #fff;
+  padding: 16px; /* converted from 1rem */
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Textarea Styling */
+.comment-form textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 80px;
+  padding: 8px; /* converted from 0.5rem */
+  font-size: 16px; /* converted from 1rem */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.comment-form textarea:focus {
+  border-color: #ffa500;
+  outline: none;
+  box-shadow: 0 0 5px #ffa500;
+}
+
+/* Submit Button */
+.comment-form button {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 8px 24px; /* converted from 0.5rem 1.5rem */
+  font-size: 16px; /* converted from 1rem */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+  background-color: #cc8400;
+}
+
+/* Login Prompt */
+.container p a {
+  color: #ffa500;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container p a:hover {
+  text-decoration: underline;
+}

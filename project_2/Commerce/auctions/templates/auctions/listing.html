@@ -1,0 +1,81 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="card-wrapper">
+        <div class="product-image">
+            <img src="{{ details.imgURL }}" alt="{{ details.title }}">
+        </div>
+        <div class="product-details">
+            {% if user == details.seller and details.active %}
+                <a class="top-right-btn" id="close-auction" href="{% url 'close' details.id %}">Close Auction</a>
+            {% endif %}
+            <h3 class="product-title">{{ details.title }}</h3>
+            <p class="product-description">{{ details.description }}</p>
+            <h4 class="price">Current Price: <span>${{ details.starting_bid.bid }}</span></h4>
+            <p class="seller">Listed by <strong>{{ details.seller }}</strong></p>
+            <p class="category">Category: <strong>{{ details.category }}</strong></p>
+
+            {% if details.active %}
+                {% if authenticated %}
+                    <form action="{% url 'listing' details.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="number" step="0.01" name="bid" class="form-control bid-input" placeholder="Enter your bid" min="{{ details.starting_bid.bid|add:1 }}" required>
+                        <button class="add-to-cart" type="submit" name="action" value="bid">Place Bid</button>
+                    </form>
+                {% else %}
+                    <p><a href="{% url 'login' %}">Log in</a> to place a bid.</p>
+                {% endif %}
+            {% else %}
+                <p>The Listing is not active anymore</p>
+                <p>Auction Winner: {{ details.starting_bid.buyer }}</p>
+                <p>Highest Bid: {{ details.starting_bid.bid }}</p>
+            {% endif %}
+            {% if authenticated %}
+                <div class="btn-watchlist">
+                    {% if user in details.watchlist.all %}
+                        <a href="{% url 'remove_watchlist' details.id %}" class="add-to-watchlist" name="action" value="remove_watchlist">Remove From Watchlist</a>
+                    {% else %}
+                        <a href="{% url 'add_watchlist' details.id %}" class="add-to-watchlist" name="action" value="add_watchlist">Add to Watchlist</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="comments">
+        <h3>Comments ({{ comments|length }})</h3>
+
+        {% if comments %}
+            <ul class="comment-list list-unstyled">
+            {% for comment in comments %}
+                <li class="comment mb-3 p-3 border rounded">
+                <p><strong>{{ comment.writer.username }}</strong> <small class="text-muted">{{ comment.com_date|date:"M d, Y H:i" }}</small></p>
+                <p>{{ comment.content }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endif %}
+
+        {% if details.active %}
+
+            {% if authenticated %}
+                <form action="{% url "listing" details.id %}" method="POST" class="comment-form mt-4">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="comment-content" class="form-label">Add a Comment</label>
+                    <textarea id="comment-content" name="comment" class="form-control" rows="3" placeholder="Write your comment here..." required></textarea>
+                </div>
+                <button type="submit" name="action" value="add_comment" class="btn btn-primary">Post Comment</button>
+                </form>
+            {% else %}
+                <p><a href="{% url 'login' %}">Log in</a> to post a comment.</p>
+            {% endif %}
+
+        {% else %}
+                <p>The Listing is not active anymore</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
