@@ -1,0 +1,77 @@
+textarea {
+    min-height: 400px;
+}
+/* Mailbox Container */
+#emails-view {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Mailbox Header */
+#emails-view h3 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4285F4;
+  color: #333;
+}
+
+/* Individual Email Container */
+#emails-view > div {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#emails-view > div:hover {
+  box-shadow: 0px 0px 1px 1px #dae2ff;
+  background-color: #f5f7ff;
+}
+
+/* Email Elements */
+#sender {
+  width: 25%;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#subject {
+  width: 55%;
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#time {
+  width: 20%;
+  text-align: right;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Buttons */
+#archive{
+  padding: 6px 20px;
+  border-width: 2px;
+}
+
+#reply{
+  padding: 6px 20px;
+  border-width: 2px;
+}
+
+/* Unread Email Styling */
+.unread {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+/* Read Email Styling */
+.read {
+  background-color: #f8f9fa;
+  color: #777;
+}
