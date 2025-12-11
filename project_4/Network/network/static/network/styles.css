@@ -1,0 +1,298 @@
+body {
+    margin: 5px;
+}
+
+
+/* Container for all posts */
+.posts {
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+
+/* Each individual post card */
+.post {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s;
+}
+
+
+.post:hover {
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+
+/* Username link */
+.post a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+
+.post a:hover {
+    color: #2980b9;
+}
+
+
+.post input[type="button"] {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    border-radius: 20%;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Translation select */
+.selectLang {
+    border: 1.5px solid transparent;
+}
+
+/* Container for language select in post */
+#languages {
+    position: absolute;
+    bottom: 22px;
+    right: 110px;
+    border: 1.5px solid transparent;
+}
+
+/* Translate button styles */
+.translate {
+    position: absolute;
+    bottom: 15px;
+    right: 16px;
+    border-radius: 20%;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #17a2b8; /* add background color if missing */
+    border: none;
+}
+
+/* Fix hover for translate button */
+.translate:hover {
+    background-color: #027acb;
+}
+
+
+/* Post date */
+.post_date {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    margin: 6px 0 15px 0;
+}
+
+
+/* Post content */
+.content {
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* New post form container */
+.new_post {
+    max-width: 90%;
+    margin: 20px auto 40px auto;
+    padding: 15px 20px ;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Textarea styling */
+.new_post textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.new_post textarea:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Submit button */
+.new_post input[type="submit"] {
+    margin-top: 12px;
+    color: white;
+    border: none;
+    padding: 5px 17px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new_post input[type="submit"]:hover {
+    background-color: #027acb;
+}
+
+/* Like and comment buttons */
+.like-btn, .comment-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin-right: 15px;
+    color: #7f8c8d;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+.like-btn:hover, .comment-btn:hover {
+    color: #2980b9;
+}
+
+/* Filled heart color */
+.like-btn .liked {
+    color: rgb(255, 0, 0);
+}
+
+/* Like count next to heart */
+.like-count {
+    margin-left: 6px;
+    font-size: 1rem;
+    color: #34495e;
+}
+
+
+/* Following Followers */
+.emphasis {
+    display: inline-block;
+}
+
+
+/* Comments container - match posts container style */
+.comments {
+    margin-top: 32px;
+    padding: 20px 25px; /* match .post padding */
+    background-color: #fff; /* white background, same as posts */
+    border-radius: 10px; /* rounded corners like .post */
+    border: 1px solid #ddd; /* match post border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow like .post */
+    transition: box-shadow 0.3s;
+}
+
+/* Slight shadow on hover for comments container */
+.comments:hover {
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Comments heading - consistent color and underline */
+.comments h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: #2c3e50; /* similar dark blue as links */
+    border-bottom: 2px solid #2980b9; /* blue underline matching links */
+    padding-bottom: 5px;
+}
+
+/* Comment list - keep no style but add spacing */
+.comment-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 32px;
+}
+
+/* Individual comment - similar styling as posts but smaller radius */
+.comment {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* slightly smaller radius */
+    padding: 16px 20px; /* match post padding style */
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Comment hover - subtle lift like posts */
+.comment:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Comment author and date - consistent dark color and weight */
+.comment p:first-child {
+    font-weight: 600;
+    color: #2c3e50; /* darker, consistent with links and usernames */
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Comment text - readable font size and color */
+.comment p:last-child {
+    font-size: 1rem;
+    color: #34495e; /* match post content color */
+    line-height: 1.5;
+}
+
+/* Comment form container - consistent with new_post block */
+.comment-form {
+    background-color: #f8f9fa; /* same as .new_post background */
+    padding: 20px 25px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Textarea styling - match new_post textarea */
+.comment-form textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Submit button styling - unify with new_post submit */
+.comment-form button {
+    background-color: #027acb; /* match .new_post input submit hover */
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 12px;
+}
+
+.comment-form button:hover {
+    background-color: #025a96;
+}

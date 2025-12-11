@@ -1,0 +1,116 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <br>
+    <div class="col-xs-12 divider text-center">
+        <h1>{{ username }}</h1>
+        <div class="col-xs-12 col-sm-4 emphasis" id="followers">
+            <h2><strong> {{ followers.count }} </strong></h2>
+            <p><small>Followers</small></p>
+        </div>
+        <div class="col-xs-12 col-sm-4 emphasis" id="following">
+            <h2><strong>{{ following.count }}</strong></h2>
+            <p><small>Following</small></p>
+        </div>
+        {% if user.username != username %}
+            {% if user in followers %}
+                <button id="follow-btn" class="btn btn-light btn-block" data-user-id="{{ user_id }}"><span class="fa fa-check-circle"></span> Unfollow </button>
+            {% else %}
+                <button id="follow-btn" class="btn btn-light btn-block" data-user-id="{{ user_id }}"><span class="fa fa-plus-circle"></span> Follow </button>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <hr>
+    <div class="posts">
+        {% for post in posts %}
+            <div class="post" data-post-id="{{ post.id }}">
+                <a href="{% url 'profile' post.user.id %}">
+                    <h5 class="sender">{{ post.user.username }}</h5>
+                </a>
+                {% if user == post.user %}<input type="button" id="edit-btn" class="btn btn-primary" data-post-id="{{ post.id }}" value="Edit">{% endif %}
+                
+                <div id="languages">
+                    <select class="selectLang" id="selectLangC{{post.id}}" name="language">
+                        <option value="en">English</option>
+                        <option value="fr">French</option>
+                        <option value="es">Spanish</option>
+                        <option value="de">German</option>
+                        <option value="ar">Arabic</option>
+                    </select>
+                </div>
+                <button class="btn btn-info translate" onclick="translateContent(this, 'selectLangC{{post.id}}')">Translate</button>
+                
+                <p class="post_date">{{ post.post_date|date:"M d Y, h:i A" }}</p>
+                <pre id="post-content-{{ post.id }}" class="content">{{ post.content }}</pre>
+
+                <button id="like-btn" class="like-btn" data-post-id="{{ post.id }}" aria-label="Like button">
+                    {% if user in post.likes.all %}
+                        <i class="fa-solid fa-heart liked"></i>
+                    {% else %}
+                        <i class="fa-regular fa-heart"></i>
+                    {% endif %}
+                    <span class="like-count">{{ post.likes.count }}</span>
+                </button>
+
+                <a href="{% url "comments" post.id %}">
+                    <button class="comment-btn" aria-label="Comment button">
+                        <i class="fa-regular fa-comment"></i>
+                    </button>
+                </a>
+            </div>
+        {% endfor %}
+        <nav aria-label="Page Navigation">
+            <ul class="pagination justify-content-center">
+
+                {% if posts.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">First</span></li>
+                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                {% endif %}
+
+                {% for page_num in posts.paginator.page_range %}
+                    {% if page_num >= posts.number|add:-2 and page_num <= posts.number|add:2 %}
+                        {% if page_num == posts.number %}
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">
+                                {{ page_num }}
+                                <span class="visually-hidden"></span>
+                                </span>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if posts.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">Next</span></li>
+                    <li class="page-item disabled"><span class="page-link">Last</span></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/script.js' %}"></script>
+{% endblock %}
